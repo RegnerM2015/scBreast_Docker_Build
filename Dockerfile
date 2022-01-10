@@ -57,28 +57,10 @@ RUN R --no-echo --no-restore --no-save -e "remotes::install_github('mojaveazure/
 # Additional Bioconductor packages
 RUN R --no-echo --no-restore --no-save -e "BiocManager::install(c('DirichletMultinomial', 'BSgenome', 'ComplexHeatmap', 'BiocParallel', 'ChIPpeakAnno', 'cicero', 'DelayedArray', 'DelayedMatrixStats', 'EnsDb.Hsapiens.v86', 'ensembldb', 'Gviz', 'MatrixGenerics','sparseMatrixStats'))"
 
-# Install MACS2 (python3)
-RUN pip3 install --no-cache-dir Cython
-RUN pip3 install --no-cache-dir macs2==2.2.7.1
-
-# Cairo
-RUN R --no-echo --no-restore --no-save -e "install.packages('Cairo')"
-
-# ArchR
-RUN R --no-echo --no-restore --no-save -e "install.packages('devtools')"
-RUN R --no-echo --no-restore --no-save -e "devtools::install_github('GreenleafLab/ArchR', ref='master', repos = BiocManager::repositories())" 
-
-# chromVAR
-RUN R --no-echo --no-restore --no-save -e "BiocManager::install('chromVAR')" 
-RUN R --no-echo --no-restore --no-save -e "remotes::install_github(c('GreenleafLab/chromVARmotifs','GreenleafLab/motifmatchr'))" 
-
 # Harmony
 RUN R --no-echo --no-restore --no-save -e "install.packages('gganimate')" 
 RUN R --no-echo --no-restore --no-save -e "BiocManager::install(c('sva','DESeq2'))" 
 RUN R --no-echo --no-restore --no-save -e "remotes::install_github(c('immunogenomics/harmony','immunogenomics/presto','JEFworks/MUDAN'))"
-
-# motif database
-RUN R --no-echo --no-restore --no-save -e "BiocManager::install(c('JASPAR2016','JASPAR2018','JASPAR2020'))" 
 
 # inferCNV
 RUN apt-get update && . /etc/environment \
@@ -112,9 +94,6 @@ RUN R --no-echo --no-restore --no-save -e "install.packages('tidyverse')"
 
 # Shiny
 RUN R --no-echo --no-restore --no-save -e "install.packages('shiny')"
-
-# Signac
-RUN R --no-echo --no-restore --no-save -e "install.packages('Signac')"
 
 CMD [ "R" ]
 
