@@ -45,7 +45,7 @@ RUN R --no-echo --no-restore --no-save -e "install.packages('hdf5r')"
 
 # Install Seurat
 RUN R --no-echo --no-restore --no-save -e "install.packages('remotes')"
-RUN R --no-echo --no-restore --no-save -e "install.packages('Seurat')"
+RUN R --no-echo --no-restore --no-save -e "remotes::install_version('Seurat', version = '3.1.5')"
 
 # Install SeuratDisk
 RUN R --no-echo --no-restore --no-save -e "remotes::install_github('mojaveazure/seurat-disk')"
@@ -61,6 +61,11 @@ RUN R --no-echo --no-restore --no-save -e "BiocManager::install(c('DirichletMult
 RUN R --no-echo --no-restore --no-save -e "install.packages('gganimate')" 
 RUN R --no-echo --no-restore --no-save -e "BiocManager::install(c('sva','DESeq2'))" 
 RUN R --no-echo --no-restore --no-save -e "remotes::install_github(c('immunogenomics/harmony','immunogenomics/presto','JEFworks/MUDAN'))"
+
+# MultiK
+RUN R --no-echo --no-restore --no-save -e "install.packages('sigclust')"
+RUN R --no-echo --no-restore --no-save -e "install.packages('devtools')"
+RUN R --no-echo --no-restore --no-save -e "devtools::install_github('siyao-liu/MultiK')"
 
 # inferCNV
 RUN apt-get update && . /etc/environment \
