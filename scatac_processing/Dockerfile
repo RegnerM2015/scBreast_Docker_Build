@@ -56,7 +56,9 @@ RUN R --no-echo --no-restore --no-save -e "remotes::install_github('mojaveazure/
 #####################################
 
 # Additional Bioconductor packages
-RUN R --no-echo --no-restore --no-save -e "BiocManager::install(c('DirichletMultinomial', 'BSgenome', 'ComplexHeatmap', 'BiocParallel', 'ChIPpeakAnno', 'cicero', 'DelayedArray', 'DelayedMatrixStats', 'EnsDb.Hsapiens.v86', 'ensembldb', 'Gviz', 'MatrixGenerics','sparseMatrixStats'))"
+RUN R --no-echo --no-restore --no-save -e "BiocManager::install(c('DirichletMultinomial', 'BSgenome', 'ComplexHeatmap', 'BiocParallel', 'ChIPpeakAnno', 'cicero', 'DelayedArray', 'DelayedMatrixStats', 'ensembldb', 'Gviz', 'MatrixGenerics','sparseMatrixStats'))"
+RUN R --no-echo --no-restore --no-save -e "BiocManager::install('EnsDb.Hsapiens.v86')"
+
 
 # Harmony
 RUN R --no-echo --no-restore --no-save -e "install.packages('gganimate')" 
