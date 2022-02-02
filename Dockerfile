@@ -39,7 +39,7 @@ RUN git clone --branch v1.2.1 https://github.com/KlugerLab/FIt-SNE.git
 RUN g++ -std=c++11 -O3 FIt-SNE/src/sptree.cpp FIt-SNE/src/tsne.cpp FIt-SNE/src/nbodyfft.cpp  -o bin/fast_tsne -pthread -lfftw3 -lm
 
 # Install CRAN suggests
-RUN R --no-echo --no-restore --no-save -e "install.packages(c('VGAM', 'R.utils', 'metap', 'Rfast2', 'ape', 'enrichR', 'mixtools'))"
+RUN R --no-echo --no-restore --no-save -e "install.packages(c('VGAM', 'R.utils', 'Rfast2', 'ape', 'enrichR', 'mixtools'))"
 
 # Install hdf5r
 RUN R --no-echo --no-restore --no-save -e "install.packages('hdf5r')"
@@ -57,8 +57,8 @@ RUN R --no-echo --no-restore --no-save -e "install.packages('RColorBrewer')"
 # msigdbr
 RUN R --no-echo --no-restore --no-save -e "install.packages('msigdbr')"
 
-# pysch
-RUN R --no-echo --no-restore --no-save -e "install.packages('pysch')"
+# psych
+RUN R --no-echo --no-restore --no-save -e "install.packages('psych')"
 
 # stringr/stringi
 RUN R --no-echo --no-restore --no-save -e "install.packages('stringr')"
@@ -120,3 +120,7 @@ RUN R --no-echo --no-restore --no-save -e "remotes::install_github('chris-mcginn
 
 # clustree
 RUN R --no-echo --no-restore --no-save -e "install.packages('clustree')"
+
+# Install mutoss and metap
+RUN R --no-echo --no-restore --no-save -e "install.packages('mutoss')"
+RUN R --no-echo --no-restore --no-save -e "install.packages('metap')"
