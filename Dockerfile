@@ -124,3 +124,8 @@ RUN R --no-echo --no-restore --no-save -e "install.packages('clustree')"
 # Install mutoss and metap
 RUN R --no-echo --no-restore --no-save -e "install.packages('mutoss')"
 RUN R --no-echo --no-restore --no-save -e "install.packages('metap')"
+
+# Install ggdendro and dendextend
+RUN R --no-echo --no-restore --no-save -e "install.packages('ggdendro')"
+RUN R --no-echo --no-restore --no-save -e "install.packages('dendextend')"
+
