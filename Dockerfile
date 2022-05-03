@@ -129,3 +129,5 @@ RUN R --no-echo --no-restore --no-save -e "install.packages('metap')"
 RUN R --no-echo --no-restore --no-save -e "install.packages('ggdendro')"
 RUN R --no-echo --no-restore --no-save -e "install.packages('dendextend')"
 
+# Install fpc 
+RUN R --no-echo --no-restore --no-save -e "install.packages('fpc')"
