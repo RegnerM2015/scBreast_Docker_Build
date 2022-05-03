@@ -79,7 +79,7 @@ RUN R --no-echo --no-restore --no-save -e "BiocManager::install(c('multtest', 'S
 RUN R --no-echo --no-restore --no-save -e "BiocManager::install(c('JASPAR2016','JASPAR2018','JASPAR2020'))"
 
 # Install Seurat
-RUN R --no-echo --no-restore --no-save -e "install.packages('Seurat')"
+RUN R --no-echo --no-restore --no-save -e "remotes::install_github('satijalab/seurat@f1b2593ea72f2e6d6b16470dc7b9e9b645179923')"
 
 # Install SeuratDisk
 RUN R --no-echo --no-restore --no-save -e "remotes::install_github('mojaveazure/seurat-disk')"
@@ -131,9 +131,4 @@ RUN R --no-echo --no-restore --no-save -e "install.packages('dendextend')"
 
 # Install fpc 
 RUN R --no-echo --no-restore --no-save -e "install.packages('fpc')"
-
-# Install additional Seurat dependencies
-RUN R --no-echo --no-restore --no-save -e "install.packages('rgeos')"
-RUN R --no-echo --no-restore --no-save -e "install.packages('sctransform')"
-RUN R --no-echo --no-restore --no-save -e "install.packages('SeuratObject')"
 
