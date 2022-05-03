@@ -131,3 +131,9 @@ RUN R --no-echo --no-restore --no-save -e "install.packages('dendextend')"
 
 # Install fpc 
 RUN R --no-echo --no-restore --no-save -e "install.packages('fpc')"
+
+# Install additional Seurat dependencies
+RUN R --no-echo --no-restore --no-save -e "install.packages('rgeos')"
+RUN R --no-echo --no-restore --no-save -e "install.packages('sctransform')"
+RUN R --no-echo --no-restore --no-save -e "install.packages('SeuratObject')"
+
