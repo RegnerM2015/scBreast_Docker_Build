@@ -79,10 +79,9 @@ RUN R --no-echo --no-restore --no-save -e "BiocManager::install(c('multtest', 'S
 RUN R --no-echo --no-restore --no-save -e "BiocManager::install(c('JASPAR2016','JASPAR2018','JASPAR2020'))"
 
 # Install Seurat
-RUN R --no-echo --no-restore --no-save -e "remotes::install_github('satijalab/seurat@f1b2593ea72f2e6d6b16470dc7b9e9b645179923')"
-
-# Install SeuratDisk
 RUN R --no-echo --no-restore --no-save -e "remotes::install_github('mojaveazure/seurat-disk')"
+RUN R --no-echo --no-restore --no-save -e "remotes::install_github('mojaveazure/seurat-object@acaf1d19be52c54ded797c42415728d9a9f9d66f')"
+RUN R --no-echo --no-restore --no-save -e "remotes::install_github('satijalab/seurat@f1b2593ea72f2e6d6b16470dc7b9e9b645179923')"
 
 # Harmony
 RUN R --no-echo --no-restore --no-save -e "install.packages('gganimate')"
