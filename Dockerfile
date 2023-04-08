@@ -78,6 +78,9 @@ RUN R --no-echo --no-restore --no-save -e "BiocManager::install(c('DirichletMult
 RUN R --no-echo --no-restore --no-save -e "BiocManager::install(c('multtest', 'S4Vectors', 'SummarizedExperiment', 'SingleCellExperiment', 'MAST', 'DESeq2', 'BiocGenerics', 'GenomicRanges', 'IRanges', 'monocle', 'Biobase', 'limma','EnsDb.Hsapiens.v86'))"
 RUN R --no-echo --no-restore --no-save -e "BiocManager::install(c('JASPAR2016','JASPAR2018','JASPAR2020'))"
 
+# Install spatstat.core
+RUN R --no-echo --no-restore --no-save -e "remotes::install_github('spatstat/spatstat.core@v2.2-0')"
+
 # Install Seurat
 RUN R --no-echo --no-restore --no-save -e "remotes::install_github('mojaveazure/seurat-disk')"
 RUN R --no-echo --no-restore --no-save -e "remotes::install_github('mojaveazure/seurat-object@acaf1d19be52c54ded797c42415728d9a9f9d66f')"
