@@ -79,7 +79,7 @@ RUN R --no-echo --no-restore --no-save -e "BiocManager::install(c('multtest', 'S
 RUN R --no-echo --no-restore --no-save -e "BiocManager::install(c('JASPAR2016','JASPAR2018','JASPAR2020'))"
 
 # Install spatstat.core
-RUN R --no-echo --no-restore --no-save -e "remotes::install_github('spatstat/spatstat.core@v1.65-5')"
+RUN R --no-echo --no-restore --no-save -e "install.packages('spatstat.core')"
 
 # Install Seurat
 RUN R --no-echo --no-restore --no-save -e "remotes::install_github('mojaveazure/seurat-disk')"
