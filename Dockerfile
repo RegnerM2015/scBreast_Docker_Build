@@ -106,7 +106,7 @@ RUN pip3 install --no-cache-dir macs2==2.2.7.1
 RUN R --no-echo --no-restore --no-save -e "install.packages('Cairo')"
 
 # ArchR
-RUN R --no-echo --no-restore --no-save -e "devtools::install_github('GreenleafLab/ArchR', ref='master', repos = BiocManager::repositories())"
+RUN R --no-echo --no-restore --no-save -e "devtools::install_github('GreenleafLab/ArchR@v1.0.1', ref='master', repos = BiocManager::repositories())"
 
 # chromVAR motifs
 RUN R --no-echo --no-restore --no-save -e "remotes::install_github(c('GreenleafLab/chromVARmotifs','GreenleafLab/motifmatchr'))"
@@ -131,3 +131,5 @@ RUN R --no-echo --no-restore --no-save -e "install.packages('dendextend')"
 # Install fpc 
 RUN R --no-echo --no-restore --no-save -e "install.packages('fpc')"
 
+# Install MatrixEQTL
+RUN R --no-echo --no-restore --no-save -e "install.packages('MatrixEQTL')"
