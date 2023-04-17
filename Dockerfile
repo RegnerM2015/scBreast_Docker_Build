@@ -7,6 +7,7 @@ ENV RETICULATE_MINICONDA_ENABLED=FALSE
 # Install MatrixEQTL
 RUN R --no-echo --no-restore --no-save -e "install.packages('MatrixEQTL')"
 
-# Install lme4 and lmerTest
+# Install lme4, lmerTest, and minqa dependency
+RUN R --no-echo --no-restore --no-save -e "install.packages('minqa')"
 RUN R --no-echo --no-restore --no-save -e "install.packages('lme4')"
 RUN R --no-echo --no-restore --no-save -e "install.packages('lmerTest')"
