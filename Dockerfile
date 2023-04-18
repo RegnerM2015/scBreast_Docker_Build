@@ -13,3 +13,6 @@ RUN apt-get update && apt-get -y install cmake protobuf-compiler
 # Install lme4, lmerTest, and dependencies
 RUN R --no-echo --no-restore --no-save -e "install.packages('lme4', dependencies = TRUE)"
 RUN R --no-echo --no-restore --no-save -e "install.packages('lmerTest', dependencies = TRUE)"
+
+# Install doMC for parallelization
+RUN R --no-echo --no-restore --no-save -e "install.packages('doMC', dependencies = TRUE)"
