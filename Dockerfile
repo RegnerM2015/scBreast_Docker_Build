@@ -7,12 +7,8 @@ ENV RETICULATE_MINICONDA_ENABLED=FALSE
 # Install MatrixEQTL
 RUN R --no-echo --no-restore --no-save -e "install.packages('MatrixEQTL')"
 
-# Install dependencies for lme4 and lmerTest
-RUN apt-get install -y \
-  cmake \
-  protobuf-compiler \
-  libgfortran5 
-
+# Install CMake for lme4 and lmerTest
+RUN apt-get update && apt-get -y install cmake protobuf-compiler
 
 # Install lme4, lmerTest, and dependencies
 RUN R --no-echo --no-restore --no-save -e "install.packages('lme4', dependencies = TRUE)"
