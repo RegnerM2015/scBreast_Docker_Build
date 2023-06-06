@@ -5,4 +5,4 @@ RUN echo "options(repos = 'https://cloud.r-project.org')" > $(R --no-echo --no-s
 ENV RETICULATE_MINICONDA_ENABLED=FALSE
 
 # Install BSgenome hg19
-RUN R --no-echo --no-restore --no-save -e "install.packages('BSgenome.Hsapiens.UCSC.hg19', dependencies = TRUE)"
+RUN R --no-echo --no-restore --no-save -e "BiocManager::install('BSgenome.Hsapiens.UCSC.hg19')"
