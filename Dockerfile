@@ -22,3 +22,7 @@ RUN R --no-echo --no-restore --no-save -e "BiocManager::install('clusterProfiler
 
 # Install EnhancedVolcano
 RUN R --no-echo --no-restore --no-save -e "BiocManager::install('EnhancedVolcano')"
+
+# Install sigclust2
+RUN R --no-echo --no-restore --no-save -e "BiocManager::install('pkimes/sigclust2')"
+
