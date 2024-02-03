@@ -26,3 +26,6 @@ RUN R --no-echo --no-restore --no-save -e "BiocManager::install('EnhancedVolcano
 # Install sigclust2
 RUN R --no-echo --no-restore --no-save -e "BiocManager::install('pkimes/sigclust2')"
 
+# Install eulerr
+RUN R --no-echo --no-restore --no-save -e "install.packages('eulerr')"
+
