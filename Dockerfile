@@ -29,3 +29,5 @@ RUN R --no-echo --no-restore --no-save -e "BiocManager::install('pkimes/sigclust
 # Install eulerr
 RUN R --no-echo --no-restore --no-save -e "install.packages('eulerr')"
 
+# Install writexl
+RUN R --no-echo --no-restore --no-save -e "install.packages('writexl')"
