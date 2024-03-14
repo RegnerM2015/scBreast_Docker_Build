@@ -1,4 +1,4 @@
-FROM regnerm/scbreast_2023:1.1.2
+FROM regnerm/scbreast_2023:1.8.0
 
 # Set global R options
 RUN echo "options(repos = 'https://cloud.r-project.org')" > $(R --no-echo --no-save -e "cat(Sys.getenv('R_HOME'))")/etc/Rprofile.site
@@ -12,22 +12,9 @@ RUN apt-get install -y \
     libfribidi-dev \
     libtiff-dev
 
-# Install grr 
-RUN R --no-echo --no-restore --no-save -e "install.packages('grr')"
+# Install depmap and ExperimentHub
+RUN R --no-echo --no-restore --no-save -e "BiocManager::install('depmap')"
+RUN R --no-echo --no-restore --no-save -e "BiocManager::install('ExperimentHub')"
 
-# Install clusterProfiler, enrichplot, and ggtree 
-RUN R --no-echo --no-restore --no-save -e "remotes::install_github('YuLab-SMU/ggtree')"
-RUN R --no-echo --no-restore --no-save -e "BiocManager::install('enrichplot')"
-RUN R --no-echo --no-restore --no-save -e "BiocManager::install('clusterProfiler')"
-
-# Install EnhancedVolcano
-RUN R --no-echo --no-restore --no-save -e "BiocManager::install('EnhancedVolcano')"
-
-# Install sigclust2
-RUN R --no-echo --no-restore --no-save -e "BiocManager::install('pkimes/sigclust2')"
-
-# Install eulerr
-RUN R --no-echo --no-restore --no-save -e "install.packages('eulerr')"
-
-# Install writexl
-RUN R --no-echo --no-restore --no-save -e "install.packages('writexl')"
+# Install BSDA
+RUN R --no-echo --no-restore --no-save -e "install.packages('BSDA')"
